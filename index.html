@@ -2,42 +2,186 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Website</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simcha Kramer - IT Technician</title>
+  <meta name="description" content="Professional IT Technician offering computer repair, setup, network support, and cybersecurity services.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
     body {
-      <header>
-  <h1>Click Wise Tech</h1>
-  <p>Professional Computer & IT Services</p>
-</header>
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
 
-<section>
-  <h2>What I Do</h2>
-  <ul>
-    <li>Computer Repair & Troubleshooting</li>
-    <li>Virus & Malware Removal</li>
-    <li>System Setup & Upgrades</li>
-    <li>Home & Small Business IT Support</li>
-  </ul>
-</section>
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
 
-<section>
-  <h2>Why Choose Me</h2>
-  <p>
-    Reliable, honest IT support with clear pricing and fast turnaround.
-    Local service available.
-  </p>
-</section>
+    a:hover {
+      text-decoration: underline;
+    }
 
-<section>
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-  <p>Phone: (000) 000-0000</p>
-</section>
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
 
-<footer>
-  © 2025 Click Wise Tech
-</footer>
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #0056b3;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 15px 20px;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      background-color: #004080;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .services, .contact {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ul li {
+      padding: 10px 0;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact input, .contact textarea {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .contact button {
+      padding: 12px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .contact button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      nav {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Simcha Kramer</h1>
+    <p>Professional IT Technician | Computer Repair | Network & Cybersecurity</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Simcha Kramer, a professional IT technician with over 3 years of experience providing computer repair, network setup, and cybersecurity solutions for businesses and individuals. I specialize in troubleshooting hardware and software issues efficiently, keeping your systems running smoothly and securely.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>Services</h2>
+    <ul>
+      <li><strong>Computer Repair & Upgrade:</strong> Hardware diagnostics, replacement, and performance upgrades.</li>
+      <li><strong>Network Setup & Troubleshooting:</strong> Wi-Fi setup, router configuration, and connectivity solutions.</li>
+      <li><strong>Cybersecurity & Antivirus:</strong> Malware removal, firewall setup, and security best practices.</li>
+      <li><strong>Software Installation & Support:</strong> Operating systems, productivity software, and custom setups.</li>
+      <li><strong>Pickup & Delivery Available:</strong> Convenient service for local clients.</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>If you need IT support, feel free to reach out. I’m available for consultations and services in your area.</p>
+    <form action="mailto:youremail@example.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Simcha Kramer | <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
+  </footer>
 
 </body>
 </html>
