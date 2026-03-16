@@ -8,14 +8,34 @@
   <style>
     /* Reset */
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; color: #fff; background: #0d0f17; line-height: 1.6; }
+    body { font-family: 'Roboto', sans-serif; color: #fff; background: #0d0f17; line-height: 1.6; overflow-x: hidden; }
 
-    /* Canvas background */
+    /* Background Canvas */
     #bg-canvas {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      z-index: -1; /* behind content */
+      z-index: -3; /* behind everything */
+    }
+
+    /* Neon wave layers */
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 300px;
+      background: linear-gradient(90deg, rgba(0,240,255,0.15), rgba(0,0,0,0) 70%);
+      opacity: 0.3;
+      z-index: -2;
+      animation: waveMove 30s linear infinite;
+    }
+
+    .wave:nth-child(1){ top: 50px; animation-duration: 35s; }
+    .wave:nth-child(2){ top: 250px; animation-duration: 50s; }
+    .wave:nth-child(3){ top: 450px; animation-duration: 40s; }
+
+    @keyframes waveMove{
+      0%{ transform: translateX(0); }
+      100%{ transform: translateX(-50%); }
     }
 
     /* Header */
@@ -35,6 +55,7 @@
       text-align: center; background: transparent;
       overflow: hidden;
       padding: 0 20px;
+      position: relative;
     }
     .hero h2 { font-size: 3em; color: #00f0ff; margin-bottom: 20px; animation: fadeIn 2s ease forwards; }
     .hero p { font-size: 1.2em; color: #ccc; margin-bottom: 40px; max-width: 600px; }
@@ -45,7 +66,7 @@
     .hero a.cta:hover { background: #00c0d0; }
 
     /* Sections */
-    section { padding: 80px 50px; }
+    section { padding: 80px 50px; position: relative; }
     section h3 { font-size: 2em; color: #00f0ff; margin-bottom: 20px; }
     section p { color: #ccc; max-width: 800px; margin-bottom: 40px; }
 
@@ -86,6 +107,11 @@
 
   <!-- Background Canvas -->
   <canvas id="bg-canvas"></canvas>
+
+  <!-- Neon Waves -->
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
 
   <!-- Header -->
   <header>
