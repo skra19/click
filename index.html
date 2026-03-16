@@ -3,115 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clickwise Tech</title>
+  <title>Clickwise Tech – Smart IT Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Roboto', sans-serif; color: #fff; background: #0d0f17; line-height: 1.6; overflow-x: hidden; }
-
-    /* Background Canvas */
-    #bg-canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -3; /* behind everything */
-    }
-
-    /* Neon wave layers */
-    .wave {
-      position: absolute;
-      width: 200%;
-      height: 300px;
-      background: linear-gradient(90deg, rgba(0,240,255,0.15), rgba(0,0,0,0) 70%);
-      opacity: 0.3;
-      z-index: -2;
-      animation: waveMove 30s linear infinite;
-    }
-
-    .wave:nth-child(1){ top: 50px; animation-duration: 35s; }
-    .wave:nth-child(2){ top: 250px; animation-duration: 50s; }
-    .wave:nth-child(3){ top: 450px; animation-duration: 40s; }
-
-    @keyframes waveMove{
-      0%{ transform: translateX(0); }
-      100%{ transform: translateX(-50%); }
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Roboto', sans-serif; color:#E0E0E0; background:#0B1D3B; line-height:1.6; overflow-x:hidden; }
 
     /* Header */
     header {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 50px; background: transparent;
-      position: fixed; width: 100%; z-index: 100;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px 50px; position:fixed; width:100%; z-index:100;
+      background: rgba(11,29,59,0.85);
+      backdrop-filter: blur(5px);
     }
-    header h1 { color: #00f0ff; letter-spacing: 2px; font-size: 1.8em; }
-    nav a { color: #fff; text-decoration: none; margin-left: 25px; transition: 0.3s; }
-    nav a:hover { color: #00f0ff; }
+    header h1 { color:#00F0FF; font-size:1.8em; letter-spacing:2px; }
+    nav a { color:#E0E0E0; margin-left:25px; text-decoration:none; transition:0.3s; }
+    nav a:hover { color:#FF55AA; }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      height: 100vh; display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      text-align: center; background: transparent;
-      overflow: hidden;
-      padding: 0 20px;
-      position: relative;
+      height:100vh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center;
+      background: linear-gradient(135deg, #0B1D3B, #1A2A4A);
+      position:relative; overflow:hidden; padding:0 20px;
     }
-    .hero h2 { font-size: 3em; color: #00f0ff; margin-bottom: 20px; animation: fadeIn 2s ease forwards; }
-    .hero p { font-size: 1.2em; color: #ccc; margin-bottom: 40px; max-width: 600px; }
+    .hero h2 { font-size:3em; color:#00F0FF; margin-bottom:20px; animation:fadeIn 2s ease forwards; }
+    .hero p { font-size:1.2em; color:#E0E0E0; max-width:600px; margin-bottom:40px; }
     .hero a.cta {
-      background: #00f0ff; color: #0d0f17; padding: 15px 35px; font-weight: bold;
-      border-radius: 50px; text-decoration: none; transition: 0.3s;
+      background: #FF55AA; color:#0B1D3B; padding:15px 35px; font-weight:bold;
+      border-radius:50px; text-decoration:none; transition:0.3s;
     }
-    .hero a.cta:hover { background: #00c0d0; }
+    .hero a.cta:hover { background:#A65AFF; }
+
+    /* Animated accent shapes */
+    .accent-shape {
+      position:absolute; border-radius:50%; opacity:0.2;
+      animation: floatShape 15s infinite alternate;
+    }
+    .shape1 { width:200px; height:200px; background:#00F0FF; top:10%; left:15%; }
+    .shape2 { width:150px; height:150px; background:#FF55AA; bottom:20%; right:10%; animation-duration:20s; }
+
+    @keyframes floatShape{
+      0%{ transform: translateY(0) translateX(0) rotate(0deg);}
+      100%{ transform: translateY(-50px) translateX(50px) rotate(45deg);}
+    }
 
     /* Sections */
-    section { padding: 80px 50px; position: relative; }
-    section h3 { font-size: 2em; color: #00f0ff; margin-bottom: 20px; }
-    section p { color: #ccc; max-width: 800px; margin-bottom: 40px; }
+    section { padding:80px 50px; position:relative; }
+    section h3 { font-size:2em; color:#00F0FF; margin-bottom:20px; }
+    section p { color:#E0E0E0; max-width:800px; margin-bottom:40px; }
 
-    .services { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; }
+    .services { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
     .service-box {
-      background: #111327; padding: 30px; border-radius: 20px; width: 280px; text-align: center;
+      background: #1A2A4A; padding:30px; border-radius:20px; width:280px; text-align:center;
       transition: transform 0.3s, background 0.3s;
     }
-    .service-box:hover { transform: translateY(-10px); background: #161b3a; }
-    .service-box h4 { color: #00f0ff; margin-bottom: 15px; }
+    .service-box:hover { transform: translateY(-10px); background:#253B63; }
+    .service-box h4 { color:#FF55AA; margin-bottom:15px; }
 
     /* Contact Form */
-    .contact-form { max-width: 600px; margin: 0 auto; }
+    .contact-form { max-width:600px; margin:0 auto; }
     .contact-form input, .contact-form textarea {
-      width: 100%; padding: 15px; margin-bottom: 20px; border: none; border-radius: 10px;
-      background: #111327; color: #fff;
+      width:100%; padding:15px; margin-bottom:20px; border:none; border-radius:10px;
+      background:#1A2A4A; color:#E0E0E0;
     }
     .contact-form button {
-      padding: 15px 35px; border: none; border-radius: 50px; background: #00f0ff; color: #0d0f17;
-      font-weight: bold; cursor: pointer; transition: 0.3s;
+      padding:15px 35px; border:none; border-radius:50px; background:#00F0FF; color:#0B1D3B;
+      font-weight:bold; cursor:pointer; transition:0.3s;
     }
-    .contact-form button:hover { background: #00c0d0; }
+    .contact-form button:hover { background:#FF55AA; }
 
     /* Footer */
-    footer { text-align: center; padding: 40px 0; background: transparent; color: #555; }
+    footer { text-align:center; padding:40px 0; background:#0B1D3B; color:#555; }
 
     /* Animations */
     @keyframes fadeIn { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
 
     /* Responsive */
-    @media(max-width: 768px) {
-      .services { flex-direction: column; align-items: center; }
-      header { padding: 15px 25px; }
+    @media(max-width:768px){
+      .services{ flex-direction:column; align-items:center; }
+      header{ padding:15px 25px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Background Canvas -->
-  <canvas id="bg-canvas"></canvas>
-
-  <!-- Neon Waves -->
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
 
   <!-- Header -->
   <header>
@@ -125,8 +101,10 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>We Make Technology Work for You</h2>
-    <p>Providing innovative IT solutions and managed services to help your business grow and thrive in a digital world.</p>
+    <div class="accent-shape shape1"></div>
+    <div class="accent-shape shape2"></div>
+    <h2>Smart IT Solutions for Modern Businesses</h2>
+    <p>Clickwise Tech empowers businesses with intelligent, secure, and scalable IT solutions. Streamline your technology so you can focus on growth.</p>
     <a href="#contact" class="cta">Get Started</a>
   </section>
 
@@ -135,16 +113,20 @@
     <h3>Our Services</h3>
     <div class="services">
       <div class="service-box">
-        <h4>IT Support</h4>
-        <p>Reliable and fast tech support for small and medium businesses, ensuring minimal downtime.</p>
+        <h4>Managed IT Services</h4>
+        <p>End-to-end IT support tailored for small to medium businesses, 24/7 monitoring, and rapid problem-solving.</p>
       </div>
       <div class="service-box">
-        <h4>Cloud Solutions</h4>
-        <p>Scalable cloud solutions for storage, collaboration, and security tailored to your business needs.</p>
+        <h4>Cloud & Collaboration</h4>
+        <p>Seamless cloud infrastructure, storage, and team collaboration solutions for modern teams.</p>
       </div>
       <div class="service-box">
-        <h4>Cybersecurity</h4>
-        <p>Advanced protection against digital threats with proactive monitoring and security planning.</p>
+        <h4>Cybersecurity & Compliance</h4>
+        <p>Protect your business with proactive threat monitoring and compliance solutions.</p>
+      </div>
+      <div class="service-box">
+        <h4>AI & Automation Consulting</h4>
+        <p>Streamline workflows, reduce costs, and implement AI-driven tools to modernize operations.</p>
       </div>
     </div>
   </section>
@@ -152,7 +134,7 @@
   <!-- About Section -->
   <section id="about">
     <h3>About Clickwise Tech</h3>
-    <p>Clickwise Tech is committed to providing cutting-edge IT services and solutions. Our team of experts focuses on efficiency, security, and growth, empowering businesses to thrive in the modern digital landscape.</p>
+    <p>We combine cutting-edge technology with expert IT consulting to help businesses operate smarter. Our solutions are scalable, secure, and designed for growth in a digital-first world.</p>
   </section>
 
   <!-- Contact Section -->
@@ -170,71 +152,6 @@
   <footer>
     &copy; 2026 Clickwise Tech. All rights reserved.
   </footer>
-
-  <!-- Particle Background Script -->
-  <script>
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let w = canvas.width = window.innerWidth;
-    let h = canvas.height = window.innerHeight;
-
-    const particles = [];
-    const numParticles = 100;
-
-    for(let i=0;i<numParticles;i++){
-      particles.push({
-        x: Math.random()*w,
-        y: Math.random()*h,
-        vx: (Math.random()-0.5)/2,
-        vy: (Math.random()-0.5)/2,
-        r: Math.random()*2 + 1
-      });
-    }
-
-    function animate(){
-      ctx.fillStyle = "#0d0f17";
-      ctx.fillRect(0,0,w,h);
-
-      for(let i=0;i<numParticles;i++){
-        let p = particles[i];
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if(p.x<0||p.x>w) p.vx*=-1;
-        if(p.y<0||p.y>h) p.vy*=-1;
-
-        ctx.beginPath();
-        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-        ctx.fillStyle = "#00f0ff";
-        ctx.fill();
-      }
-
-      // Draw connecting lines
-      for(let i=0;i<numParticles;i++){
-        for(let j=i+1;j<numParticles;j++){
-          let dx = particles[i].x - particles[j].x;
-          let dy = particles[i].y - particles[j].y;
-          let dist = Math.sqrt(dx*dx + dy*dy);
-          if(dist < 100){
-            ctx.beginPath();
-            ctx.strokeStyle = "rgba(0,240,255,"+(1-dist/100)+")";
-            ctx.moveTo(particles[i].x,particles[i].y);
-            ctx.lineTo(particles[j].x,particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-
-    window.addEventListener('resize', ()=>{
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
-    });
-  </script>
 
 </body>
 </html>
