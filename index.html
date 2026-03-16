@@ -1,101 +1,67 @@
 <!DOCTYPE html>
-<a href="/contact/" class="btn">Get Support</a>
-</div>
-</div>
-</header>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickwise Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & base */
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
+    body, html { height:100%; background: #0a0a0a; color: #fff; overflow-x:hidden; }
+    
+    /* Container */
+    .hero { 
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      text-align:center; height:100vh; background: linear-gradient(120deg, #001f3f, #000000);
+      position: relative; overflow:hidden;
+    }
 
+    /* Animated background shapes */
+    .shape {
+      position:absolute; border-radius:50%; opacity:0.3;
+      animation: float 15s infinite;
+    }
+    .shape1 { width:200px; height:200px; background:#001f3f; top:10%; left:5%; animation-delay:0s; }
+    .shape2 { width:300px; height:300px; background:#003366; top:50%; left:80%; animation-delay:5s; }
+    .shape3 { width:150px; height:150px; background:#004080; top:70%; left:20%; animation-delay:10s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-50px) rotate(180deg); }
+    }
 
-<!-- HERO -->
-<section class="hero">
-<div>
-<h1>
-Reliable IT Support for
-<span>Growing SMBs</span>
-</h1>
-<p>
-ClickwiseTech acts as your outsourced IT department — delivering
-proactive support, cybersecurity, and scalable infrastructure so
-your business runs smoothly with minimal downtime.
-</p>
+    h1 { font-size:3rem; margin-bottom:1rem; color:#00bfff; }
+    p { font-size:1.2rem; max-width:600px; margin-bottom:2rem; color:#ccc; }
+    .cta-btn {
+      padding:15px 30px; background:#00bfff; color:#000; text-decoration:none; font-weight:bold;
+      border-radius:10px; transition:0.3s;
+    }
+    .cta-btn:hover { background:#0099cc; color:#fff; }
 
+    /* Footer */
+    footer { position:absolute; bottom:20px; text-align:center; width:100%; color:#555; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
 
-<div class="hero-buttons">
-<a href="/contact/" class="btn">Free IT Assessment</a>
-<a href="/service/" class="btn" style="background:#1e293b;">Our Services</a>
-</div>
-</div>
+    <h1>Welcome to Clickwise Tech</h1>
+    <p>Your partner in cutting-edge technology solutions. We help businesses streamline operations, optimize systems, and grow efficiently.</p>
+    <a href="#contact" class="cta-btn">Get Started</a>
 
+    <footer>&copy; 2026 Clickwise Tech | All rights reserved</footer>
+  </div>
 
-<div class="tech-graphic">
-<div class="circle one"></div>
-<div class="circle two"></div>
-<div>Secure • Fast • Reliable</div>
-</div>
-</section>
-
-
-<!-- SERVICES -->
-<section>
-<h2>Core IT Services</h2>
-
-
-<div class="services">
-<div class="card">
-<h3>Managed IT Services</h3>
-<p>
-24/7 monitoring, maintenance, and responsive support to prevent
-downtime and keep operations running smoothly.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Cybersecurity Protection</h3>
-<p>
-Protection against ransomware, phishing, and modern cyber threats
-with layered security and monitoring.
-</p>
-</div>
-
-
-<div class="card">
-<h3>Cloud Solutions</h3>
-<p>
-Secure cloud migration and infrastructure solutions that grow with
-your business.
-</p>
-</div>
-
-
-<div class="card">
-<h3>IT Strategy & Consulting</h3>
-<p>
-Align technology with business goals to improve efficiency and
-long-term scalability.
-</p>
-</div>
-</div>
-</section>
-
-
-<!-- CTA -->
-<section class="cta">
-<h2>Ready to Upgrade Your IT?</h2>
-<p>
-Let ClickwiseTech handle your technology while you focus on growing
-your business.
-</p>
-<a href="/contact/" class="btn">Schedule a Consultation</a>
-</section>
-
-
-<footer>
-© <span id="year"></span> ClickwiseTech. All rights reserved.
-</footer>
-
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <!-- Optional Contact Section -->
+  <div id="contact" style="height:100vh; background:#000; display:flex; justify-content:center; align-items:center; color:#fff;">
+    <div style="text-align:center;">
+      <h2>Contact Us</h2>
+      <p>Email: info@clickwisetech.com</p>
+      <p>Phone: (555) 123-4567</p>
+    </div>
+  </div>
 </body>
 </html>
