@@ -7,26 +7,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Global styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background: #0a0f25; color: #f0f0f0; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
 
-    body {
-      background: #0a0f25;
-      color: #f0f0f0;
-      line-height: 1.6;
+    /* Animated background lines */
+    .animated-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -1;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+    .line {
+      position: absolute;
+      width: 2px; height: 100%;
+      background: rgba(0, 191, 255, 0.2);
+      animation: moveLine 20s linear infinite;
+    }
+    @keyframes moveLine {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
     }
 
     /* Hero section */
     .hero {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -34,22 +40,24 @@
       height: 100vh;
       text-align: center;
       padding: 0 20px;
-      background: linear-gradient(135deg, #0a0f25 0%, #001f44 100%);
     }
-
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 20px;
       color: #00bfff;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: fadeInUp 1s forwards 0.3s;
     }
-
     .hero p {
       font-size: 1.2rem;
       max-width: 600px;
       margin-bottom: 30px;
       color: #c0c0c0;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1s forwards 0.6s;
     }
-
     .cta-btn {
       padding: 15px 40px;
       background-color: #00bfff;
@@ -58,11 +66,14 @@
       font-size: 1rem;
       border-radius: 30px;
       transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+      animation: fadeInUp 1s forwards 0.9s;
     }
+    .cta-btn:hover { background-color: #0088cc; transform: translateY(-3px); }
 
-    .cta-btn:hover {
-      background-color: #0088cc;
-      transform: translateY(-3px);
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Services Section */
@@ -73,7 +84,6 @@
       padding: 80px 20px;
       background-color: #0f1835;
     }
-
     .service-card {
       background-color: #131c3d;
       border-radius: 15px;
@@ -81,21 +91,13 @@
       margin: 15px;
       max-width: 300px;
       text-align: center;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity: 0;
+      transform: translateY(30px);
     }
-
-    .service-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .service-card h3 {
-      margin-bottom: 15px;
-      color: #00bfff;
-    }
-
-    .service-card p {
-      color: #c0c0c0;
-    }
+    .service-card h3 { margin-bottom: 15px; color: #00bfff; }
+    .service-card p { color: #c0c0c0; }
+    .service-card:hover { transform: translateY(-10px); box-shadow: 0 0 20px rgba(0,191,255,0.3); }
 
     /* Footer */
     footer {
@@ -107,24 +109,28 @@
 
     /* Responsive */
     @media(max-width:768px){
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      .services {
-        padding: 50px 20px;
-      }
+      .hero h1 { font-size: 2.5rem; }
+      .hero p { font-size: 1rem; }
+      .services { padding: 50px 20px; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Animated background -->
+  <div class="animated-bg">
+    <div class="line" style="left:10%; animation-duration: 18s;"></div>
+    <div class="line" style="left:25%; animation-duration: 22s;"></div>
+    <div class="line" style="left:40%; animation-duration: 20s;"></div>
+    <div class="line" style="left:55%; animation-duration: 24s;"></div>
+    <div class="line" style="left:70%; animation-duration: 19s;"></div>
+    <div class="line" style="left:85%; animation-duration: 21s;"></div>
+  </div>
+
   <!-- Hero Section -->
   <section class="hero">
     <h1>ClickWise Tech</h1>
-    <p>We provide cutting-edge IT solutions that simplify technology for small and medium businesses. From managed IT services to cloud support, we help your business run smarter and faster.</p>
+    <p>Empowering small and medium businesses with innovative IT solutions. From cloud infrastructure to managed IT services, we help you grow smarter, faster, and safer.</p>
     <a href="#contact" class="cta-btn">Get Started Today</a>
   </section>
 
@@ -132,15 +138,15 @@
   <section class="services">
     <div class="service-card">
       <h3>Managed IT Services</h3>
-      <p>Proactive monitoring, maintenance, and support to keep your systems running smoothly.</p>
+      <p>Proactive support, monitoring, and maintenance to ensure your systems run flawlessly.</p>
     </div>
     <div class="service-card">
       <h3>Cloud Solutions</h3>
-      <p>Secure cloud infrastructure and services to boost collaboration and productivity.</p>
+      <p>Secure and scalable cloud services that increase productivity and collaboration.</p>
     </div>
     <div class="service-card">
       <h3>Cybersecurity</h3>
-      <p>Advanced protection to safeguard your business against digital threats.</p>
+      <p>Advanced protection to safeguard your business against evolving digital threats.</p>
     </div>
   </section>
 
@@ -148,6 +154,22 @@
   <footer>
     &copy; 2026 ClickWise Tech. All rights reserved.
   </footer>
+
+  <!-- Scroll animation JS -->
+  <script>
+    const cards = document.querySelectorAll('.service-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.2});
+
+    cards.forEach(card => observer.observe(card));
+  </script>
 
 </body>
 </html>
