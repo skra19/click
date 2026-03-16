@@ -1,175 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ClickWise Tech</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* Global styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-    body { background: #0a0f25; color: #f0f0f0; overflow-x: hidden; }
-    a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClickWise Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif;}
+  body {background: #0f1f3f; color:#f0f0f0; line-height:1.6;}
+  a {text-decoration:none; color:inherit;}
 
-    /* Animated background lines */
-    .animated-bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-    .line {
-      position: absolute;
-      width: 2px; height: 100%;
-      background: rgba(0, 191, 255, 0.2);
-      animation: moveLine 20s linear infinite;
-    }
-    @keyframes moveLine {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100%); }
-    }
+  /* Hero section */
+  .hero {position: relative; display:flex; flex-direction: column; justify-content:center; align-items:center; height:100vh; text-align:center; padding:0 20px; overflow:hidden;}
+  .hero h1 {font-size:3rem; color:#00bfff; margin-bottom:20px; animation:fadeInUp 1s ease forwards;}
+  .hero p {font-size:1.2rem; max-width:600px; margin-bottom:30px; color:#d0e0ff; animation:fadeInUp 1s ease forwards 0.3s;}
+  .cta-btn {padding:15px 40px; background:#00bfff; color:#0f1f3f; font-weight:bold; font-size:1rem; border-radius:30px; transition:all 0.3s ease;}
+  .cta-btn:hover {background:#0088cc; transform:translateY(-3px);}
 
-    /* Hero section */
-    .hero {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #00bfff;
-      opacity: 0;
-      transform: translateY(-30px);
-      animation: fadeInUp 1s forwards 0.3s;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 30px;
-      color: #c0c0c0;
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInUp 1s forwards 0.6s;
-    }
-    .cta-btn {
-      padding: 15px 40px;
-      background-color: #00bfff;
-      color: #0a0f25;
-      font-weight: bold;
-      font-size: 1rem;
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(-10px);
-      animation: fadeInUp 1s forwards 0.9s;
-    }
-    .cta-btn:hover { background-color: #0088cc; transform: translateY(-3px); }
+  /* Hero decorative shapes */
+  .shape {position:absolute; border-radius:50%; opacity:0.15; animation:float 6s ease-in-out infinite;}
+  .shape1 {width:200px;height:200px;background:#00bfff; top:10%; left:5%;}
+  .shape2 {width:300px;height:300px;background:#0088cc; bottom:10%; right:5%;}
+  .shape3 {width:150px;height:150px;background:#00ffff; top:50%; left:80%;}
 
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+  @keyframes fadeInUp {from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);}}
+  @keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-20px);}}
 
-    /* Services Section */
-    .services {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 80px 20px;
-      background-color: #0f1835;
-    }
-    .service-card {
-      background-color: #131c3d;
-      border-radius: 15px;
-      padding: 30px;
-      margin: 15px;
-      max-width: 300px;
-      text-align: center;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .service-card h3 { margin-bottom: 15px; color: #00bfff; }
-    .service-card p { color: #c0c0c0; }
-    .service-card:hover { transform: translateY(-10px); box-shadow: 0 0 20px rgba(0,191,255,0.3); }
+  /* Services Section */
+  .services {padding:80px 20px; display:flex; flex-wrap:wrap; justify-content:center; gap:30px; background:#1b2b5a; border-top:1px solid #0a1830;}
+  .service-card {background:#233764; border-radius:15px; padding:30px; max-width:300px; text-align:center; transition:transform 0.3s ease, box-shadow 0.3s ease;}
+  .service-card h3 {margin-bottom:15px; color:#00bfff;}
+  .service-card p {color:#d0e0ff;}
+  .service-card:hover {transform:translateY(-10px); box-shadow:0 0 20px rgba(0,191,255,0.3);}
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      background-color: #0a0f25;
-      color: #888;
-    }
+  /* Why choose us Section */
+  .why {padding:80px 20px; text-align:center; background:#0f2a55;}
+  .why h2 {font-size:2.5rem; margin-bottom:20px; color:#00bfff;}
+  .why p {max-width:700px; margin:0 auto; color:#d0e0ff; font-size:1.1rem;}
 
-    /* Responsive */
-    @media(max-width:768px){
-      .hero h1 { font-size: 2.5rem; }
-      .hero p { font-size: 1rem; }
-      .services { padding: 50px 20px; }
-    }
-  </style>
+  /* Footer */
+  footer {text-align:center; padding:40px 20px; background:#0a1a3f; color:#888;}
+
+  @media(max-width:768px){.hero h1{font-size:2.5rem;}.hero p{font-size:1rem;}}
+</style>
 </head>
 <body>
 
-  <!-- Animated background -->
-  <div class="animated-bg">
-    <div class="line" style="left:10%; animation-duration: 18s;"></div>
-    <div class="line" style="left:25%; animation-duration: 22s;"></div>
-    <div class="line" style="left:40%; animation-duration: 20s;"></div>
-    <div class="line" style="left:55%; animation-duration: 24s;"></div>
-    <div class="line" style="left:70%; animation-duration: 19s;"></div>
-    <div class="line" style="left:85%; animation-duration: 21s;"></div>
+<section class="hero">
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <h1>ClickWise Tech</h1>
+  <p>Empowering SMBs with innovative IT solutions. Managed IT, cloud services, and cybersecurity to help your business grow smarter and faster.</p>
+  <a href="#contact" class="cta-btn">Get Started Today</a>
+</section>
+
+<section class="services">
+  <div class="service-card">
+    <h3>Managed IT Services</h3>
+    <p>Proactive monitoring and support to keep your systems running smoothly 24/7.</p>
   </div>
+  <div class="service-card">
+    <h3>Cloud Solutions</h3>
+    <p>Secure cloud infrastructure that boosts collaboration, productivity, and scalability.</p>
+  </div>
+  <div class="service-card">
+    <h3>Cybersecurity</h3>
+    <p>Protect your business with advanced security solutions against digital threats.</p>
+  </div>
+</section>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>ClickWise Tech</h1>
-    <p>Empowering small and medium businesses with innovative IT solutions. From cloud infrastructure to managed IT services, we help you grow smarter, faster, and safer.</p>
-    <a href="#contact" class="cta-btn">Get Started Today</a>
-  </section>
+<section class="why">
+  <h2>Why Choose ClickWise Tech?</h2>
+  <p>We combine technology expertise with personalized service. Our team ensures your IT runs seamlessly so you can focus on growing your business. Reliability, innovation, and support are at the core of everything we do.</p>
+</section>
 
-  <!-- Services Section -->
-  <section class="services">
-    <div class="service-card">
-      <h3>Managed IT Services</h3>
-      <p>Proactive support, monitoring, and maintenance to ensure your systems run flawlessly.</p>
-    </div>
-    <div class="service-card">
-      <h3>Cloud Solutions</h3>
-      <p>Secure and scalable cloud services that increase productivity and collaboration.</p>
-    </div>
-    <div class="service-card">
-      <h3>Cybersecurity</h3>
-      <p>Advanced protection to safeguard your business against evolving digital threats.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2026 ClickWise Tech. All rights reserved.
-  </footer>
-
-  <!-- Scroll animation JS -->
-  <script>
-    const cards = document.querySelectorAll('.service-card');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = 'translateY(0)';
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {threshold: 0.2});
-
-    cards.forEach(card => observer.observe(card));
-  </script>
+<footer>
+  &copy; 2026 ClickWise Tech. All rights reserved.
+</footer>
 
 </body>
 </html>
